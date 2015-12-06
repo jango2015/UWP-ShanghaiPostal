@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="ShanghaiPostal.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShanghaiPostal"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+    mc:Ignorable="d">
+    
+    <Page.BottomAppBar>
+        <CommandBar RequestedTheme="Dark" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="BtnSearch" Icon="Find" Label="搜索" Click="BtnSearch_OnClick" />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="BtnAbout" Label="关于" Click="BtnAbout_OnClick" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        
+        <Image Source="Assets/sh-bg-color.PNG" VerticalAlignment="Bottom" />
+        <Pivot Title="上海市邮编查询">
+            <PivotItem Header="县区">
+                <ScrollViewer>
+                    <GridView x:Name="GridDistricts" ItemsSource="{Binding Districts}" SelectionChanged="GridDistricts_OnSelectionChanged">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0,0,15,15"
+                                        Padding="10,5,10,5"
+                                        Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                                    <TextBlock
+                                        FontSize="22"
+                                        Foreground="White"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding Name}" />
+                                </Border>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem Header="所有邮编">
+                <ScrollViewer>
+                    <GridView x:Name="GridPostalCodes" ItemsSource="{Binding PostalCodes}" SelectionChanged="GridPostalCodes_OnSelectionChanged">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0,0,15,15"
+                                        Padding="10,5,10,5"
+                                        Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+                                    <TextBlock
+                                        FontSize="22"
+                                        Foreground="White"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding Code}" />
+                                </Border>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </ScrollViewer>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>

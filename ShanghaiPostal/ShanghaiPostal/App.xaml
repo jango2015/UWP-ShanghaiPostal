@@ -1,0 +1,16 @@
+﻿<Application
+    x:Class="ShanghaiPostal.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShanghaiPostal"
+    xmlns:converters="using:Edi.UWP.Helpers.Converters"
+    xmlns:viewModel="using:ShanghaiPostal.ViewModel"
+    xmlns:localConverters="using:ShanghaiPostal.Converters"
+    RequestedTheme="Light">
+    <Application.Resources>
+        <viewModel:ViewModelLocator x:Key="Locator" xmlns:vm="using:ShanghaiPostal.ViewModel" />
+        <converters:StringFormatConverter x:Key="StringFormatConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <localConverters:ZoomBackgroundConverter x:Key="ZoomBackgroundConverter" />
+    </Application.Resources>
+</Application>

@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="ShanghaiPostal.SearchForm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShanghaiPostal"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding Source={StaticResource Locator}, Path=SearchForm}"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar RequestedTheme="Dark" Background="Purple">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="BtnSearch" Icon="Find" Label="搜索" Click="BtnSearch_OnClick" />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Image Grid.RowSpan="2" Source="Assets/sh-bg-color.PNG" VerticalAlignment="Bottom" Opacity=".7" />
+
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="上海市邮编查询" 
+                       Foreground="#666" />
+            <TextBlock Text="搜索" FontSize="36"
+                       FontFamily="Segoe WP Light"
+                       Foreground="Black"/>
+        </StackPanel>
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <StackPanel>
+                <AutoSuggestBox x:Name="AutoSuggestBoxPostalCodes" PlaceholderText="邮编(请输入完整)" Margin="0,0,0,10" 
+                                ItemsSource="{Binding SuggessedPostalCodeList}"
+                                Text="{Binding PostalCodeTerm, Mode=TwoWay}"
+                                TextChanged="AutoSuggestBoxPostalCodes_OnTextChanged"/>
+                <TextBox x:Name="DistrictTermBox" PlaceholderText="乡/镇/街道(仅需输入部分名称即可)" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
