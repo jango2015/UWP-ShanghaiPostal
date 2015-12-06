@@ -37,7 +37,7 @@
                                         Padding="10,5,10,5"
                                         Background="{ThemeResource SystemControlBackgroundAccentBrush}">
                                     <TextBlock
-                                        FontSize="22"
+                                        FontSize="20"
                                         Foreground="White"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
@@ -57,7 +57,7 @@
                                         Padding="10,5,10,5"
                                         Background="{ThemeResource SystemControlBackgroundAccentBrush}">
                                     <TextBlock
-                                        FontSize="22"
+                                        FontSize="20"
                                         Foreground="White"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"

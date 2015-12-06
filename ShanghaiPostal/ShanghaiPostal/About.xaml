@@ -57,7 +57,7 @@
                         <Border.Background>
                             <SolidColorBrush Color="{ThemeResource SystemAccentColor}" />
                         </Border.Background>
-                        <Image Source="{Binding Logo}" Height="100" Width="100" Stretch="Fill" />
+                        <Image Source="Assets/Logo-200.png" Height="90" Width="90" Stretch="Fill" />
                     </Border>
                 </Grid>
 

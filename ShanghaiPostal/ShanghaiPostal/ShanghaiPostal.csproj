@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Districts.xml" />
+    <Content Include="Assets\Logo-200.png" />
     <Content Include="Assets\PostalCodes.xml" />
     <Content Include="Assets\sh-bg-color.PNG" />
     <None Include="Package.StoreAssociation.xml" />
